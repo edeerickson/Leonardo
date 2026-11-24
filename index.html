@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fishermans — Painel de Pedidos Revenda</title>
+  <meta name="description" content="Monte seu pedido de linhas Fishermans e envie direto pelo WhatsApp. Pedido mínimo R$ 2.500,00." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FISHERMANS" />
+  <meta property="og:title" content="Fishermans — Pedidos de Revenda · Leonardo" />
+  <meta property="og:description" content="Monte seu pedido de linhas Fishermans e envie direto pelo WhatsApp. Pedido mínimo R$ 2.500,00." />
+  <meta property="og:url" content="https://edeerickson.github.io/Leonardo/" />
+  <meta property="og:image" content="https://edeerickson.github.io/Leonardo/og-pedidos.jpg?v=1" />
+  <meta property="og:image:secure_url" content="https://edeerickson.github.io/Leonardo/og-pedidos.jpg?v=1" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fishermans — Painel de pedidos para revenda" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://edeerickson.github.io/Leonardo/og-pedidos.jpg?v=1" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=1" />
+  <link rel="icon" href="favicon.ico?v=1" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f5f7;--surface:#fff;--ink:#1a1c2e;--mut:#6b6f80;--line:#dfe1e7;--chip:#eceef2;--navy:#1a1c2e;--navy2:#24273d;
+  --coral:#ff5a36;--green:#1d7a49;--greenbg:#e5f3ea;--th:#1a1c2e;--inp:#fff;--on:#fff4ef;--logo-d:block;--logo-l:none;color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101220;--surface:#1a1d2e;--ink:#eef0f5;--mut:#a4a8b8;--line:#2c3047;--chip:#252940;--th:#2a2e48;--inp:#121422;--on:#3a2420;--green:#7fd3a2;--greenbg:#173726;--logo-d:none;--logo-l:block;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101220;--surface:#1a1d2e;--ink:#eef0f5;--mut:#a4a8b8;--line:#2c3047;--chip:#252940;--th:#2a2e48;--inp:#121422;--on:#3a2420;--green:#7fd3a2;--greenbg:#173726;--logo-d:none;--logo-l:block;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 150px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.45 Roboto,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--surface)}
+img{display:block;max-width:100%}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+h1,h2,h3,.k,.cod,th{font-family:"Roboto Condensed","Arial Narrow",Arial,sans-serif;text-transform:uppercase;margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding:0 14px}
+.k{display:block;color:var(--coral);font-weight:800;letter-spacing:1px;font-size:12.5px}
+.hidden{display:none!important}
+
+/* topo */
+.stk{position:sticky;top:env(safe-area-inset-top,0px);z-index:30}
+.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;height:54px}
+.top .ld{display:var(--logo-d);height:18px;width:auto}.top .ll{display:var(--logo-l);height:18px;width:auto}
+.top h1{font-size:15px;font-weight:800;letter-spacing:.5px;color:var(--mut)}
+.canal{color:#fff}
+.canal .wrap{display:flex;justify-content:space-between;align-items:center;gap:10px;height:38px;font:700 13px/1 "Roboto Condensed",Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px}
+.canal b{font-weight:900}
+.canal button{border:1.5px solid #fff;background:transparent;color:#fff;border-radius:999px;padding:5px 11px;font:800 11.5px/1 "Roboto Condensed",Arial,sans-serif;text-transform:uppercase;cursor:pointer}
+.canal.f{background:#2f6fb3}.canal.o{background:#d9480f}
+.nav{background:var(--surface);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--chip);border-radius:999px;padding:7px 12px;font:800 12.5px/1 "Roboto Condensed",Arial,sans-serif;text-transform:uppercase;letter-spacing:.3px}
+.nav a span{color:var(--coral);margin-left:4px}
+
+/* seções */
+main{padding-bottom:120px}
+main.wrap{padding-bottom:calc(140px + env(safe-area-inset-bottom,0px))}
+.fam{padding-top:22px}
+.fam > h2{font-size:28px;font-weight:900;line-height:1;margin:0 0 4px}
+.fam > p{margin:0 0 12px;color:var(--mut);font-size:13.5px}
+.blk{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.bh{display:flex;gap:12px;align-items:center;padding:12px}
+.bh img{width:56px;height:56px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line);flex:0 0 56px}
+.bh h3{font-size:21px;font-weight:900;line-height:1.05}
+.bh p{margin:2px 0 0;font-size:12.5px;color:var(--mut)}
+.bh .sub{margin-left:auto;text-align:right;font:800 15px/1.1 "Roboto Condensed",Arial,sans-serif;white-space:nowrap}
+.bh .sub small{display:block;font:500 11px/1.2 Roboto,Arial,sans-serif;color:var(--mut)}
+.cod{display:inline-block;background:var(--coral);color:#fff;font-weight:800;font-size:11px;padding:2px 6px;border-radius:3px;margin-bottom:3px}
+.mb .bh{border-left:6px solid var(--mc)}
+
+/* grade */
+.tw{overflow-x:auto}
+table.g{width:100%;border-collapse:collapse}
+.g th{background:var(--th);color:#fff;font-size:11px;letter-spacing:.4px;padding:7px 6px;text-align:center;font-weight:700;line-height:1.2}
+.g th:first-child{text-align:left;padding-left:12px}
+.g th small{display:block;font:500 11px/1.2 Roboto,Arial,sans-serif;text-transform:none;letter-spacing:0;opacity:.85;margin-top:2px}
+.g td{border-top:1px solid var(--line);padding:5px 6px;text-align:center}
+.g td.b{text-align:left;padding-left:12px;white-space:nowrap;font:800 16px/1.1 "Roboto Condensed",Arial,sans-serif}
+.g td.b small{display:block;font:500 11px/1.2 Roboto,Arial,sans-serif;color:var(--mut)}
+.g td.na{color:var(--mut);font-size:13px}
+.q{width:100%;max-width:74px;min-width:52px;height:40px;border:1.5px solid var(--line);border-radius:8px;background:var(--inp);text-align:center;font:800 17px/1 "Roboto Condensed",Arial,sans-serif;-moz-appearance:textfield}
+.q::-webkit-outer-spin-button,.q::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.q:focus{outline:none;border-color:var(--coral)}
+.q.on{border-color:var(--coral);background:var(--on)}
+.q.fo{border-style:dashed;background:var(--chip)}
+.q.fo.on{border-style:solid}
+.g td .se{display:block;font:700 9.5px/1.1 Roboto,Arial,sans-serif;color:#c2410c;text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+.leg{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut);margin:14px 0 0}
+.leg i{display:inline-block;width:26px;height:18px;border:1.5px dashed var(--mut);border-radius:5px;background:var(--chip)}
+.li em{font-style:normal;color:#c2410c;font-weight:700;font-size:12px}
+.g td .pp{display:block;font-size:10.5px;color:var(--mut);margin-top:2px;white-space:nowrap}
+.g.mono td .pp{font-size:12px;color:var(--ink);font-weight:700}
+
+/* acessórios */
+.acc{display:flex;gap:12px;align-items:center;padding:12px;border-top:1px solid var(--line)}
+.acc:first-of-type{border-top:0}
+.acc img{width:60px;height:60px;object-fit:contain;background:#f4f5f7;border-radius:8px;flex:0 0 60px}
+.acc .t{flex:1;min-width:0}
+.acc h3{font-size:19px;font-weight:900}
+.acc p{margin:2px 0 0;font-size:12.5px;color:var(--mut)}
+.acc .warn{color:#c2410c;font-weight:700}
+
+/* barra fixa */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:35;background:var(--surface);border-top:1px solid var(--line);padding:10px 0 calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 18px rgba(0,0,0,.08)}
+.bar .wrap{display:flex;align-items:center;gap:12px}
+.bar .tot{flex:1;min-width:0}
+.bar .tot b{font:900 24px/1 "Roboto Condensed",Arial,sans-serif}
+.bar .tot span{display:block;font-size:12px;color:var(--mut);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog{height:5px;background:var(--chip);border-radius:3px;margin-top:6px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--coral);width:0;transition:width .25s}
+.prog.ok i{background:var(--green)}
+.btn{border:0;border-radius:8px;padding:13px 16px;font:800 14.5px/1 "Roboto Condensed",Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;background:var(--coral);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.sec{background:var(--chip);color:var(--ink)}
+
+/* revisão */
+.rev{position:fixed;inset:0;z-index:50;background:rgba(10,12,22,.55);display:flex;justify-content:flex-end}
+.rev .sh{width:100%;max-width:520px;height:100%;background:var(--bg);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 24px)}
+.rev .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.rev .hd h2{font-size:26px;font-weight:900}
+.x{border:0;background:var(--chip);width:38px;height:38px;border-radius:50%;font-size:20px;cursor:pointer}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.card h3{font-size:14px;font-weight:800;letter-spacing:.5px;margin-bottom:10px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fld{display:block;font-size:12px;color:var(--mut)}
+.fld input,.fld textarea{display:block;width:100%;margin-top:3px;border:1.5px solid var(--line);border-radius:8px;background:var(--inp);padding:10px;font-size:15px}
+.fld textarea{min-height:70px;resize:vertical}
+.fld.full{grid-column:1/-1}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pg label{border:1.5px solid var(--line);border-radius:10px;padding:11px;cursor:pointer;display:flex;gap:8px;align-items:flex-start}
+.pg label:has(input:checked){border-color:var(--coral);background:var(--on)}
+.pg b{display:block;font:800 15px/1.1 "Roboto Condensed",Arial,sans-serif;text-transform:uppercase}
+.pg small{color:var(--mut);font-size:12px}
+.li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px dashed var(--line);font-size:14px}
+.li:first-of-type{border-top:0}
+.li span:last-child{white-space:nowrap;font-weight:700}
+.gh{font:800 13px/1 "Roboto Condensed",Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--coral);margin:12px 0 4px}
+.sum{display:grid;gap:6px}
+.sum div{display:flex;justify-content:space-between}
+.sum .big{font:900 24px/1 "Roboto Condensed",Arial,sans-serif;padding-top:8px;border-top:1px solid var(--line)}
+.sum .lu{color:var(--green);font-weight:700}
+.alert{border-radius:10px;padding:11px 12px;font-size:13.5px;margin-bottom:12px;background:#fff1e8;color:#9a3412;border:1px solid #fdc9a8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .alert{background:#3a2117;color:#ffc4a3;border-color:#6b3a24}}
+:root[data-theme="dark"] .alert{background:#3a2117;color:#ffc4a3;border-color:#6b3a24}
+.acts{display:grid;gap:8px}
+.acts .btn{width:100%;padding:15px}
+.ok-msg{text-align:center;color:var(--green);font-weight:700;font-size:13.5px;min-height:18px}
+
+/* pergunta inicial */
+.gate{position:fixed;inset:0;z-index:60;background:var(--navy);color:#fff;overflow:auto;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 24px) 18px calc(env(safe-area-inset-bottom,0px) + 24px)}
+.gate[hidden]{display:none}
+.gate .in{width:100%;max-width:620px}
+.gate img{height:22px;width:auto;margin-bottom:26px}
+.gate h2{font-size:clamp(36px,10vw,60px);font-weight:900;line-height:.95;margin-top:6px}
+.gate .in > p{color:#cfd2dc;margin:12px 0 20px}
+.ops{display:grid;gap:12px}
+@media (min-width:540px){.ops{grid-template-columns:1fr 1fr}}
+.ops button{text-align:left;border:0;border-radius:14px;padding:18px;cursor:pointer;color:#fff;display:flex;flex-direction:column;gap:6px;border-top:6px solid}
+.ops button.f{background:#24314f;border-top-color:#2f6fb3}.ops button.o{background:#3a2a2c;border-top-color:#d9480f}
+.ops button b{font:900 26px/1 "Roboto Condensed",Arial,sans-serif;text-transform:uppercase}
+.ops button span{font-size:14px;color:#dcdee6}
+.gate small{display:block;margin-top:14px;color:#9a9eb0;font-size:12.5px}
+
+/* ---- painel do vendedor ---- */
+.btn.wa{background:#1fa855;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.wa svg{width:19px;height:19px}
+.cep{display:flex;gap:8px;margin-top:3px}.cep input{flex:1;border:1.5px solid var(--line);border-radius:8px;background:var(--inp);padding:10px;font-size:15px}
+.frete{font-size:13.5px;margin-top:8px;color:var(--mut)}.frete b{color:var(--ink);font:800 17px/1 "Roboto Condensed",Arial,sans-serif}
+.frete a{color:var(--coral)}
+.vend{font-size:12.5px;color:var(--mut);text-align:center;margin-top:10px}
+.load{padding:60px 0;text-align:center;color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="gate" id="gate" hidden><div class="in">
+  <img src="/Catalogo/assets/v2/logo-branco.png" alt="Fishermans">
+  <span class="k">Painel de pedidos de revenda</span>
+  <h2>Como a sua loja vende?</h2>
+  <p>Os valores de atacado mudam conforme o canal. Escolha o seu para montar o pedido com os preços certos.</p>
+  <div class="ops">
+    <button type="button" class="f" data-c="f"><b>Loja física</b><span>Vitrine e balcão. Valores de atacado da loja física.</span></button>
+    <button type="button" class="o" data-c="o"><b>Loja online</b><span>Site e marketplace. Valores de atacado B2B da loja online.</span></button>
+  </div>
+  <small>Você pode trocar de canal a qualquer momento pelo botão no topo. As quantidades digitadas são mantidas.</small>
+</div></div>
+
+<div class="stk"><header class="top"><div class="wrap"><div><img class="ld" src="/Catalogo/assets/v2/logo-navy.png" alt="Fishermans"><img class="ll" src="/Catalogo/assets/v2/logo-branco.png" alt="Fishermans"></div><h1>Painel de pedidos</h1></div></header>
+<div class="canal f" id="canal"><div class="wrap"><span>Valores de atacado · <b id="canalN">loja física</b></span><button type="button" id="trocar">Trocar canal</button></div></div>
+<nav class="nav" aria-label="Linhas"><div class="wrap" id="nav"></div></nav></div>
+
+<main class="wrap" id="main"><p class="load">Carregando produtos…</p></main>
+
+<div class="bar"><div class="wrap">
+  <div class="tot"><b id="tot">R$ 0,00</b><span id="totS">Nenhum item · pedido mínimo R$ 2.500,00</span><div class="prog" id="prog"><i></i></div></div>
+  <button class="btn" id="rever" type="button" disabled>Revisar pedido</button>
+</div></div>
+
+<div class="rev hidden" id="rev" role="dialog" aria-modal="true" aria-labelledby="revT"><div class="sh">
+  <div class="hd"><h2 id="revT">Revisar pedido</h2><button class="x" type="button" id="fechar" aria-label="Fechar">×</button></div>
+  <div id="alertas"></div>
+  <div class="card"><h3>Itens</h3><div id="lista"></div></div>
+  <div class="card"><div class="sum" id="sum"></div></div>
+  <div class="card"><h3>Dados da loja (opcional)</h3><div class="f2">
+    <label class="fld full">Nome da loja<input id="c-nome" autocomplete="organization"></label>
+    <label class="fld">CNPJ<input id="c-cnpj" inputmode="numeric"></label>
+    <label class="fld">Contato<input id="c-contato" autocomplete="name"></label>
+    <label class="fld">WhatsApp<input id="c-whats" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000"></label>
+    <label class="fld">Cidade / UF<input id="c-cidade" autocomplete="address-level2"></label>
+  </div></div>
+  <div class="card"><h3>Pagamento</h3><div class="pg">
+    <label><input type="radio" name="pag" value="Pix" checked><span><b>Pix</b><small id="pgPix"></small></span></label>
+    <label><input type="radio" name="pag" value="3x sem juros"><span><b>3x sem juros</b><small id="pg3x"></small></span></label>
+  </div></div>
+  <div class="card"><h3>Frete estimado (opcional)</h3>
+    <label class="fld">CEP de destino<div class="cep"><input id="cep" maxlength="9" inputmode="numeric" placeholder="00000-000"><button class="btn sec" type="button" id="calcFrete">Calcular</button></div></label>
+    <div class="frete" id="frete"></div>
+  </div>
+  <div class="card"><label class="fld">Observações<textarea id="obs" placeholder="Prazo, entrega, combinados com o vendedor…"></textarea></label></div>
+  <div class="acts">
+    <button class="btn wa" type="button" id="enviar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Enviar pedido no WhatsApp</button>
+    <button class="btn sec" type="button" id="copiar">Copiar pedido</button>
+    <div class="ok-msg" id="okmsg" aria-live="polite"></div>
+    <button class="btn sec" type="button" id="limpar">Limpar pedido</button>
+    <p class="vend">WhatsApp comercial: +55 (41) 98720-8504</p>
+  </div>
+</div></div>
+
+<script src="fx-disponibilidade.js?v=2"></script>
+<script>
+const SEM_ESTOQUE=false; // true = mostra também as bitolas sem estoque, marcadas
+const WA='5541987208504', ST='fx-pedido-Leonardo', CLI_KEY='fishermans_cliente_atual', MIN=2500, BASE='/Catalogo/assets/v2/';
+const FAMS=[
+  {id:'ama',nome:'Amazônica',desc:'Multifilamento camuflado · águas escuras',linhas:[['Amazônica X4','4X','amazonica-4x'],['Amazônica X8','8X','amazonica-8x']]},
+  {id:'oce',nome:'Oceânica',desc:'Multifilamento camuflado · águas claras',linhas:[['Oceânica X4','4X','oceanica-4x'],['Oceânica X8','8X','oceanica-8x']]},
+  {id:'mar',nome:'Marfim 16X',desc:'Multifilamento de alta performance · 16 fios',linhas:[['Marfim X16','16X','marfim-16x']]},
+  {id:'mono',nome:'Monofilamentos',desc:'Série X1 · carretel de 300m',mono:true,linhas:[['Mono N40','N40 Nylon','n40','#7c818a'],['Mono S50','S50 Soft','s50','#7a52b3'],['Mono C97','C97 Carbon Coat','c97','#4b4f57'],['Mono N90','N90 Nylon','n90','#a51d2d'],['Mono W98','W98 Tungstênio','w98','#b8901f']]}];
+let ITENS=[], PADRAO=new Set(), C=null, Q={}, PAG='Pix', OBS='', CEP=null;
+const $=s=>document.querySelector(s);
+const brl=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const bit=b=>b.replace('.',',');
+const key=i=>i.l+'|'+i.m+'|'+i.b;
+const ord=m=>parseInt(m)||0;
+const nome=l=>l.replace(' X4',' 4X').replace(' X8',' 8X').replace(' X16',' 16X').replace('Mono ','');
+const compra=i=>C==='f'?i.fc:i.oc, venda=i=>C==='f'?i.fv:i.ov;
+// disponibilidade: o que o Painel do atacado decidiu; se nunca decidiu, vale a lista padrão do catálogo
+function ativo(i){const F=window.FXDisp;let e=null;if(F&&F.carregado&&F.carregado()){e=F.estado(i.sku);if(e===null&&i.skuCat&&i.skuCat!==i.sku)e=F.estado(i.skuCat)}return e===null?PADRAO.has(i.skuCat+'|'+i.m+'|'+i.l):e}
+const alicateDisp=()=>{const F=window.FXDisp;return !F||!F.carregado||!F.carregado()||F.familiaDisponivel('alicate')};
+const alicateOk=()=>SEM_ESTOQUE||alicateDisp();
+const vende=i=>(SEM_ESTOQUE||ativo(i))&&compra(i)!=null;
+const semEst=i=>SEM_ESTOQUE&&i.l&&ITENS.includes(i)&&!ativo(i);
+const COPO=()=>ITENS.filter(i=>i.l==='Copo Fishermans');
+
+function salvar(){try{localStorage.setItem(ST,JSON.stringify({C,Q,PAG,OBS}))}catch(e){}}
+function carregar(){try{const s=JSON.parse(localStorage.getItem(ST)||'null');if(s){C=s.C||null;Q=s.Q||{};PAG=s.PAG||'Pix';OBS=s.OBS||''}}catch(e){}}
+
+// ---------- grade ----------
+function inp(i){return `<input class="q${semEst(i)?' fo':''}" type="number" inputmode="numeric" min="0" step="1" data-k="${key(i)}" aria-label="${nome(i.l)} ${i.m} ${bit(i.b)}">`}
+function montar(){
+  let nav='',h='';
+  FAMS.forEach(f=>{
+    const blocos=f.linhas.map(([l,cod,img,cor])=>{
+      const its=ITENS.filter(i=>i.l===l&&vende(i)); if(!its.length) return '';
+      const mets=[...new Set(its.map(i=>i.m))].sort((a,b)=>ord(a)-ord(b));
+      const bits=[...new Set(its.map(i=>i.b))].sort((a,b)=>parseFloat(a)-parseFloat(b));
+      const lb=b=>{const x=its.find(i=>i.b===b&&i.lb);return x?x.lb+' lb':''};
+      const p1={};mets.forEach(m=>{const ps=[...new Set(its.filter(i=>i.m===m).map(compra))];p1[m]=ps.length===1?ps[0]:null});
+      let head,body;
+      if(f.mono){
+        head='<tr><th>Bitola</th><th>Compra</th><th>Qtd. (300m)</th></tr>';
+        body=bits.map(b=>{const i=its.find(x=>x.b===b);return `<tr><td class="b">${bit(b)}<small>${lb(b)}</small></td><td><span class="pp">${brl(compra(i))}</span></td><td>${inp(i)}${semEst(i)?'<span class="se">sem estoque</span>':''}</td></tr>`}).join('');
+      }else{
+        head=`<tr><th>Bitola</th>${mets.map(m=>`<th>${m}${p1[m]!=null?`<small>${brl(p1[m])}</small>`:''}</th>`).join('')}</tr>`;
+        body=bits.map(b=>`<tr><td class="b">${bit(b)}<small>${lb(b)}</small></td>${mets.map(m=>{const i=its.find(x=>x.b===b&&x.m===m);
+          return i?`<td>${inp(i)}${p1[m]==null?`<span class="pp">${brl(compra(i))}</span>`:''}${semEst(i)?'<span class="se">sem estoque</span>':''}</td>`:'<td class="na">—</td>'}).join('')}</tr>`).join('');
+      }
+      return `<article class="blk${f.mono?' mb':''}" id="l-${l.replace(/\W+/g,'')}" ${cor?`style="--mc:${cor}"`:''}><div class="bh"><img src="${BASE+img}.jpg" alt=""><div>${f.mono?'':`<span class="cod">${cod}</span>`}<h3>${f.mono?cod:f.nome.replace(' 16X','')+' '+cod}</h3><p>${its.length} ${its.length==1?'item':'itens'}${f.mono?' · carretel 300m':' · '+mets.join(', ')}</p></div><div class="sub" data-sub="${l}"></div></div>
+        <div class="tw"><table class="g${f.mono?' mono':''}"><thead>${head}</thead><tbody>${body}</tbody></table></div></article>`;
+    }).join('');
+    if(!blocos) return;
+    nav+=`<a href="#f-${f.id}">${f.nome}<span data-nav="${f.id}"></span></a>`;
+    h+=`<section class="fam" id="f-${f.id}"><h2>${f.nome}</h2><p>${f.desc}</p>${blocos}</section>`;
+  });
+  const cp=COPO().filter(vende); const c10=cp.find(x=>x.m==='10 un'), c15=cp.find(x=>x.m!=='10 un');
+  const copo=c10?`<div class="acc"><img src="${BASE}copo.jpg" alt=""><div class="t"><h3>Copo Fishermans</h3><p>${brl(compra(c10))} a partir de 10 un${c15?' · '+brl(compra(c15))+' acima de 15 un':''}</p>${c10&&semEst(c10)?'<p class="warn">Sem estoque no momento</p>':''}<p class="warn" data-w="copo"></p></div><input class="q${c10&&semEst(c10)?' fo':''}" type="number" inputmode="numeric" min="0" step="1" data-k="COPO" aria-label="Quantidade de copos"></div>`:'';
+  const al=alicateOk()?`<div class="acc"><img src="${BASE}alicate.jpg" alt=""><div class="t"><h3>Alicate Fishermans</h3><p>${brl(59.9)} · mínimo de 10 un</p>${SEM_ESTOQUE&&!alicateDisp()?'<p class="warn">Sem estoque no momento</p>':''}<p class="warn" data-w="alicate"></p></div><input class="q${SEM_ESTOQUE&&!alicateDisp()?' fo':''}" type="number" inputmode="numeric" min="0" step="1" data-k="ALICATE" aria-label="Quantidade de alicates"></div>`:'';
+  if(copo||al){nav+=`<a href="#f-acc">Acessórios<span data-nav="acc"></span></a>`;h+=`<section class="fam" id="f-acc"><h2>Acessórios</h2><p>Venda a partir de 10 unidades por item.</p><article class="blk">${copo}${al}</article></section>`}
+  if(SEM_ESTOQUE&&h) h='<p class="leg"><i></i>Borda tracejada: sem estoque no momento. Pode incluir no pedido; o vendedor confirma o prazo.</p>'+h;
+  $('#nav').innerHTML=nav; $('#main').innerHTML=h||'<p class="load">Nenhum produto disponível no momento.</p>';
+  document.querySelectorAll('.q').forEach(e=>{const v=Q[e.dataset.k];if(v)e.value=v;e.classList.toggle('on',!!v)});
+  atualizar();
+}
+// ---------- cálculo ----------
+function linhasPedido(){
+  const out=[], fora=[];
+  ITENS.forEach(i=>{if(i.l==='Copo Fishermans')return;const q=Q[key(i)];if(!q)return;
+    if(!vende(i)){fora.push(i);return}
+    const c=compra(i),v=venda(i);out.push({i,q,c,sub:c*q,lu:v!=null?(v-c)*q:0,se:semEst(i)})});
+  const ORD=FAMS.flatMap(f=>f.linhas.map(l=>l[0]));
+  out.sort((x,y)=>ORD.indexOf(x.i.l)-ORD.indexOf(y.i.l)||ord(x.i.m)-ord(y.i.m)||parseFloat(x.i.b)-parseFloat(y.i.b));
+  const qc=Q.COPO||0, cp=COPO().filter(vende);
+  if(qc&&cp.length){const t=cp.find(x=>x.m===(qc>15?'Acima de 15 un':'10 un'))||cp[0];const c=compra(t);out.push({i:{l:'Copo Fishermans',m:'',b:'',sku:t.sku},q:qc,c,sub:c*qc,lu:(venda(t)-c)*qc,acc:'Copo Fishermans',se:semEst(t)})}
+  const qa=Q.ALICATE||0; if(qa&&alicateOk()) out.push({i:{l:'Alicate Fishermans',m:'',b:''},q:qa,c:59.9,sub:59.9*qa,lu:0,acc:'Alicate Fishermans',se:SEM_ESTOQUE&&!alicateDisp()});
+  return {ls:out,fora};
+}
+function atualizar(){
+  const {ls}=linhasPedido(), tot=ls.reduce((a,x)=>a+x.sub,0), un=ls.reduce((a,x)=>a+x.q,0), falta=MIN-tot;
+  $('#tot').textContent=brl(tot);
+  $('#totS').textContent=un?`${un} ${un==1?'unidade':'unidades'} · ${falta>0?'faltam '+brl(falta)+' para o mínimo':'pedido mínimo atingido'}`:'Nenhum item · pedido mínimo R$ 2.500,00';
+  const pr=$('#prog');pr.querySelector('i').style.width=Math.min(100,tot/MIN*100)+'%';pr.classList.toggle('ok',tot>=MIN);
+  $('#rever').disabled=!un;
+  document.querySelectorAll('[data-sub]').forEach(e=>{const s=ls.filter(x=>x.i.l===e.dataset.sub);const v=s.reduce((a,x)=>a+x.sub,0),q=s.reduce((a,x)=>a+x.q,0);e.innerHTML=q?`${brl(v)}<small>${q} un</small>`:''});
+  FAMS.forEach(f=>{const e=document.querySelector(`[data-nav="${f.id}"]`);if(!e)return;const q=ls.filter(x=>f.linhas.some(l=>l[0]===x.i.l)).reduce((a,x)=>a+x.q,0);e.textContent=q||''});
+  const ea=document.querySelector('[data-nav="acc"]');if(ea)ea.textContent=((Q.COPO||0)+(Q.ALICATE||0))||'';
+  [['copo',Q.COPO],['alicate',Q.ALICATE]].forEach(([k,q])=>{const e=document.querySelector(`[data-w="${k}"]`);if(e)e.textContent=q&&q<10?'Mínimo de 10 unidades':''});
+}
+// ---------- frete (estimativa PAC, origem Curitiba/PR) ----------
+const PESO_UN=0.110, PAC={sul:{base:22,perKg:4.2,label:'Sul (perto de Curitiba)'},sudeste_co:{base:28,perKg:5.5,label:'Sudeste / Centro-Oeste'},norte_nordeste:{base:38,perKg:7.5,label:'Norte / Nordeste'}};
+function regiao(d){const f=d.charAt(0);if('89'.includes(f))return 'sul';if('01237'.includes(f))return 'sudeste_co';if('456'.includes(f))return 'norte_nordeste';return null}
+function frete(cep,un){const d=cep.replace(/\D/g,'');if(d.length!==8)return{erro:'Digite os 8 números do CEP.'};const r=regiao(d);if(!r)return{erro:'Não foi possível identificar a região deste CEP.'};if(un<=0)return{erro:'Adicione itens ao pedido antes de calcular o frete.'};
+  const a=Math.max(1,Math.ceil(un/9))*3+1, cub=31*31*a/6000, p=Math.max(un*PESO_UN,cub);return{erro:null,label:PAC[r].label,valor:PAC[r].base+PAC[r].perKg*p}}
+// ---------- revisão ----------
+function revisar(){
+  const {ls,fora}=linhasPedido(), tot=ls.reduce((a,x)=>a+x.sub,0), lu=ls.reduce((a,x)=>a+x.lu,0), al=[];
+  if(tot<MIN) al.push(`Faltam <b>${brl(MIN-tot)}</b> para o pedido mínimo de R$ 2.500,00. Você pode enviar mesmo assim e combinar com o vendedor.`);
+  if(Q.COPO&&Q.COPO<10) al.push('Copo: mínimo de 10 unidades.');
+  if(Q.ALICATE&&Q.ALICATE<10) al.push('Alicate: mínimo de 10 unidades.');
+  const se=ls.filter(x=>x.se); if(se.length) al.push(`${se.length==1?'1 item está':se.length+' itens estão'} sem estoque no momento: ${se.map(x=>x.acc||nome(x.i.l)+' '+x.i.m+' '+bit(x.i.b)).join(', ')}. Eles seguem no pedido marcados, e o vendedor confirma o prazo.`);
+  if(fora.length) al.push(`${fora.length==1?'Este item não está disponível':'Estes itens não estão disponíveis'} ${C==='f'?'na loja física':'na loja online'} e ${fora.length==1?'ficou':'ficaram'} fora do pedido: ${fora.map(i=>nome(i.l)+' '+i.m+' '+bit(i.b)).join(', ')}.`);
+  $('#alertas').innerHTML=al.map(a=>`<div class="alert">${a}</div>`).join('');
+  let h='',g='';
+  ls.forEach(x=>{const gr=x.acc?'Acessórios':nome(x.i.l)+' '+x.i.m;if(gr!==g){g=gr;h+=`<div class="gh">${gr}</div>`}
+    h+=`<div class="li"><span>${x.acc?x.acc.replace(' Fishermans',''):bit(x.i.b)} · ${x.q} × ${brl(x.c)}${x.se?' <em>sem estoque</em>':''}</span><span>${brl(x.sub)}</span></div>`});
+  $('#lista').innerHTML=h||'<p>Nenhum item.</p>';
+  $('#sum').innerHTML=`<div><span>Canal</span><b>${C==='f'?'Loja física':'Loja online'}</b></div><div><span>Unidades</span><b>${ls.reduce((a,x)=>a+x.q,0)}</b></div><div class="lu"><span>Seu lucro estimado*</span><span>${brl(lu)}</span></div><div class="big"><span>Total</span><span>${brl(tot)}</span></div><p style="margin:6px 0 0;font-size:11.5px;color:var(--mut)">* Vendendo ${C==='f'?'pela venda mínima da loja física':'pelo anúncio mínimo'}. Sem o Alicate e sem frete.</p>`;
+  $('#pgPix').textContent=brl(tot)+' à vista'; $('#pg3x').textContent='3 × '+brl(Math.round(tot/3*100)/100);
+  document.querySelectorAll('[name=pag]').forEach(r=>r.checked=r.value===PAG);
+  $('#obs').value=OBS; $('#okmsg').textContent=''; mostrarFrete();
+  $('#rev').classList.remove('hidden'); document.body.style.overflow='hidden';
+}
+function mostrarFrete(){const {ls}=linhasPedido(),un=ls.reduce((a,x)=>a+x.q,0);if(!CEP){$('#frete').innerHTML='';return}
+  const f=frete(CEP,un);$('#frete').innerHTML=f.erro?f.erro:`Estimativa PAC (${f.label}): <b>${brl(f.valor)}</b><br>Valor aproximado, a confirmar com o vendedor. Confira em <a href="https://www2.correios.com.br/sistemas/precosPrazos/" target="_blank" rel="noopener">correios.com.br</a>.`}
+function cli(k){return ($('#c-'+k).value||'').trim()}
+function texto(){
+  const {ls}=linhasPedido(), tot=ls.reduce((a,x)=>a+x.sub,0), un=ls.reduce((a,x)=>a+x.q,0);
+  const L=['Olá! Gostaria de fazer o seguinte pedido como revendedor Fishermans:','',`Canal: ${C==='f'?'Loja física':'Loja online'}`];
+  [['Loja','nome'],['CNPJ','cnpj'],['Contato','contato'],['WhatsApp','whats'],['Cidade/UF','cidade']].forEach(([a,k])=>{if(cli(k))L.push(`${a}: ${cli(k)}`)});
+  L.push('');
+  ls.forEach(x=>L.push(`• ${x.i.sku?'['+x.i.sku+'] ':''}${x.acc||nome(x.i.l)} — ${x.acc?'unidade':x.i.m+' · '+bit(x.i.b)+' mm'} — Qtd: ${x.q} — ${brl(x.sub)}${x.se?' (sem estoque no momento)':''}`));
+  L.push('',`Total do pedido: ${brl(tot)} (${un} un)`,`Pagamento: ${PAG}${PAG!=='Pix'?' (3 × '+brl(Math.round(tot/3*100)/100)+')':''}`);
+  const f=CEP?frete(CEP,un):null;
+  L.push(f&&!f.erro?`Frete aproximado (PAC, CEP ${CEP.slice(0,5)}-${CEP.slice(5)}): ${brl(f.valor)} *estimativa, valor exato a confirmar`:'(valor do frete a calcular)');
+  if(OBS.trim()) L.push('',`Observações: ${OBS.trim()}`);
+  return L.join('\n');
+}
+async function copiar(){const t=texto(),m=$('#okmsg');try{await navigator.clipboard.writeText(t);m.textContent='Pedido copiado.'}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');m.textContent='Pedido copiado.'}catch(_){m.textContent='Não consegui copiar. Selecione e copie manualmente.'}a.remove()}}
+// ---------- canal ----------
+function escolher(c){C=c;$('#gate').hidden=true;document.body.style.overflow='';$('#canal').className='canal '+c;$('#canalN').textContent=c==='f'?'loja física':'loja online';salvar();montar()}
+function perguntar(){$('#gate').hidden=false;document.body.style.overflow='hidden';document.querySelector('.ops button').focus()}
+// ---------- eventos ----------
+document.addEventListener('input',e=>{
+  const q=e.target.closest('.q');if(q){let v=parseInt(q.value,10);if(!(v>0))v=0;if(v>9999)v=9999;if(v)Q[q.dataset.k]=v;else delete Q[q.dataset.k];q.classList.toggle('on',!!v);salvar();atualizar();return}
+  if(e.target.id&&e.target.id.startsWith('c-')){const c={};['nome','cnpj','contato','whats','cidade'].forEach(k=>c[k]=$('#c-'+k).value);try{localStorage.setItem(CLI_KEY,JSON.stringify(c))}catch(_){}}
+  if(e.target.id==='obs'){OBS=e.target.value;salvar()}
+});
+document.addEventListener('change',e=>{if(e.target.name==='pag'){PAG=e.target.value;salvar()}});
+document.addEventListener('focusin',e=>{if(e.target.classList&&e.target.classList.contains('q'))e.target.select()});
+document.querySelectorAll('.ops button').forEach(b=>b.addEventListener('click',()=>escolher(b.dataset.c)));
+$('#trocar').addEventListener('click',perguntar);
+$('#rever').addEventListener('click',revisar);
+$('#fechar').addEventListener('click',()=>{$('#rev').classList.add('hidden');document.body.style.overflow=''});
+$('#rev').addEventListener('click',e=>{if(e.target.id==='rev')$('#fechar').click()});
+$('#calcFrete').addEventListener('click',()=>{const d=$('#cep').value.replace(/\D/g,'');CEP=d.length===8?d:null;if(!CEP){$('#frete').textContent='Digite os 8 números do CEP.';return}mostrarFrete()});
+$('#enviar').addEventListener('click',()=>window.open(`https://wa.me/${WA}?text=${encodeURIComponent(texto())}`,'_blank','noopener'));
+$('#copiar').addEventListener('click',copiar);
+$('#limpar').addEventListener('click',()=>{if(!confirm('Apagar todas as quantidades deste pedido?'))return;Q={};OBS='';PAG='Pix';CEP=null;salvar();$('#fechar').click();montar()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#rev').classList.contains('hidden'))$('#fechar').click()});
+try{const c=JSON.parse(localStorage.getItem(CLI_KEY))||{};['nome','cnpj','contato','whats','cidade'].forEach(k=>$('#c-'+k).value=c[k]||'')}catch(e){}
+// ---------- dados do catálogo (fonte única de produtos e preços) ----------
+function carregarDados(){return new Promise((ok,erro)=>{const s=document.createElement('script');s.src=BASE+'dados.js?t='+Math.floor(Date.now()/120000);s.onload=ok;s.onerror=erro;document.head.appendChild(s)})}
+carregar();
+carregarDados().then(()=>{
+  ITENS=window.FX_CAT.itens; PADRAO=new Set(window.FX_CAT.padrao);
+  document.addEventListener('fx-disp',()=>{if(C)montar()});
+  if(C)escolher(C);else perguntar();
+}).catch(()=>{$('#main').innerHTML='<p class="load">Não foi possível carregar os produtos. Verifique a internet e recarregue a página.</p>'});
+</script>
+</body>
+</html>
